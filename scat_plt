@@ -1,0 +1,7 @@
+# scat_plt
+def scat_plt(data,var1, var2, groups):
+    plot = sns.scatterplot(data, x=var1, y=var2, hue=groups)
+    return plot
+
+# check
+# scat_plt(df,'D2', 'spread1', 'status')
