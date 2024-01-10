@@ -1,0 +1,4 @@
+def group_and_average(df, gv):
+    # Grouping and averaging the dataframe by the given variable
+    av_df = df.groupby(gv).mean().reset_index()
+    return av_df
