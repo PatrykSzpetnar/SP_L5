@@ -1,0 +1,21 @@
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+
+def normalize(df, op):
+    norm_df = df.copy()
+
+    # Extract numerical columns
+    num_columns = df.select_dtypes(include=['number']).columns
+
+
+    if op == 0:  # Z-score normalization
+        scaler = StandardScaler()
+        norm_df[num_columns] = scaler.fit_transform(df[num_columns])
+
+    elif op == 1:  # Min-Max normalization
+        scaler = MinMaxScaler()
+        norm_df[num_columns] = scaler.fit_transform(df[num_columns])
+
+    else:
+        raise ValueError("Invalid value for 'op'.")
+
+    return norm_df
